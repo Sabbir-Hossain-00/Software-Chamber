@@ -1,0 +1,166 @@
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SmarterIdea } from "../../Components/SmarterIdea/SmarterIdea";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const reviews = [
+  {
+    quote:
+      "Working with this team has transformed our product. Their expertise and dedication are unmatched. Highly recommend!",
+    avatar: "/images/man.png",
+    name: "Alex Larkins",
+    position: "Art Director at Airbnb",
+    logo: "/images/logo-3.png",
+  },
+  {
+    quote:
+      "The professionalism and creativity shown throughout the project exceeded our expectations. We’re thrilled with the results.",
+    avatar: "/images/man.png",
+    name: "Jessica Morgan",
+    position: "CEO at Tech Solutions",
+    logo: "/images/logo-3.png",
+  },
+  {
+    quote:
+      "Their attention to detail and timely delivery made a huge difference. We look forward to future collaborations.",
+    avatar: "/images/man.png",
+    name: "Michael Chen",
+    position: "Product Manager at FinCorp",
+    logo: "/images/logo-3.png",
+  },
+  // Add more reviews here if needed
+];
+
+export const Review = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const quoteRef = useRef(null);
+  const avatarRef = useRef(null);
+  const starsRef = useRef(null);
+  const shineRef = useRef(null);
+  const containerRef = useRef(null);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    // Auto-play every 5 seconds
+    timeoutRef.current = setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % reviews.length);
+    }, 5000);
+
+    return () => clearTimeout(timeoutRef.current);
+  }, [currentIndex]);
+
+  useEffect(() => {
+    // Quote mark shine loop (only once)
+    if (shineRef.current) {
+      gsap.to(shineRef.current, {
+        opacity: 0.15,
+        duration: 0.5,
+        yoyo: true,
+        repeat: -1,
+        ease: "power1.inOut",
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    function playAnimation() {
+      gsap.fromTo(
+        quoteRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: "power1.out" }
+      );
+
+      gsap.fromTo(
+        [avatarRef.current, starsRef.current],
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.out",
+          stagger: 0.06,
+          delay: 0.3,
+        }
+      );
+    }
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top 80%",
+        onEnter: () => playAnimation(),
+        onEnterBack: () => playAnimation(),
+      });
+    }, containerRef);
+
+    playAnimation();
+
+    return () => ctx.revert();
+  }, [currentIndex]);
+
+  const review = reviews[currentIndex];
+
+  return (
+    <div
+      ref={containerRef}
+      className="container mx-auto px-3 md:py-30 py-10 flex flex-col gap-10 justify-center items-center z-10"
+    >
+      <div>
+        <SmarterIdea />
+      </div>
+      <div>
+        <h1 className="md:text-6xl text-2xl font-medium text-center text-[#E9E9E9]">
+          Don’t just take our word for it. Hear <br /> what{" "}
+          <span className=" text-[#A5A5A5]">our clients say</span>{" "}
+        </h1>
+      </div>
+      <div className="z-10 bg-[#090B0F] flex flex-col gap-16 md:mt-24 mt-6 shadow-[0_2px_20px_rgba(44,206,186,0.3)] rounded-2xl md:py-20 md:px-30 p-4 relative">
+        {/* Quote mark with shine */}
+        <div
+          ref={shineRef}
+          className="absolute top-2 left-4 text-[6rem] text-[#00FFE0] opacity-10 pointer-events-none select-none"
+          style={{ userSelect: "none" }}
+        >
+          “
+        </div>
+
+        <h1
+          ref={quoteRef}
+          className="font-medium md:text-2xl text-lg md:w-[80%] relative z-10"
+          key={currentIndex}
+        >
+          "{review.quote}"
+        </h1>
+
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <img
+              ref={avatarRef}
+              className="w-12"
+              src={review.avatar}
+              alt={review.name}
+            />
+            <div>
+              <h2 className="text-lg font-medium">{review.name}</h2>
+              <p className="text-xs">{review.position}</p>
+            </div>
+          </div>
+          <div>
+            <img
+              ref={starsRef}
+              className="w-40"
+              src={review.logo}
+              alt={`${review.name} company logo`}
+            />
+          </div>
+        </div>
+      </div>
+      {/* bg */}
+      <div className="absolute -top-120 -left-10">
+        <img src="/images/review-glow-top.png" alt="" />
+      </div>
+    </div>
+  );
+};
