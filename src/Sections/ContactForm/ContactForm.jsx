@@ -1,14 +1,67 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export const ContactForm = () => {
-  const formHeight = "500px"; // easy to change in one place
+  const sectionRef = useRef(null);
+  const headlineRefs = useRef([]);
+  const imageRef = useRef(null);
+  const inputRefs = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Headline animation
+      gsap.from(headlineRefs.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "restart none none none",
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: "power3.out",
+      });
+
+      // Image + inputs animation
+      gsap.from([imageRef.current, ...inputRefs.current], {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "restart none none none",
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power3.out",
+        delay: 0.3,
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="container mx-auto px-3 py-20">
+    <div ref={sectionRef} className="container mx-auto px-3 py-20">
       {/* Heading */}
       <h1 className="text-center md:text-6xl text-2xl font-bold leading-tight">
-        Let’s talk about your next <br /> project.{" "}
-        <span className="text-gray-400 font-medium">We’re here to help.</span>
+        <span ref={(el) => (headlineRefs.current[0] = el)}>
+          Let’s talk about your next
+        </span>
+        <br />
+        <span ref={(el) => (headlineRefs.current[1] = el)}>
+          project.{" "}
+          <span className="text-gray-400 font-medium">We’re here to help.</span>
+        </span>
       </h1>
-      <p className="text-center mt-4 text-gray-500">
+      <p
+        className="text-center mt-4 text-gray-500"
+        ref={(el) => (headlineRefs.current[2] = el)}
+      >
         Deliver personalized experiences to your customers <br /> with
         AI-powered recommendation engines and <br /> dynamic content generation.
       </p>
@@ -16,7 +69,7 @@ export const ContactForm = () => {
       {/* Image + Form */}
       <div className="mt-20 grid md:grid-cols-2 grid-cols-1 gap-10 items-start">
         {/* Left Image */}
-        <div className="flex" style={{ height: formHeight }}>
+        <div className="flex h-[500px]" ref={imageRef}>
           <img
             src="/images/man-2.png"
             alt="Smiling person"
@@ -25,51 +78,57 @@ export const ContactForm = () => {
         </div>
 
         {/* Right Form */}
-        <div className="flex" style={{ height: formHeight }}>
+        <div className="flex h-auto">
           <form className="w-full flex flex-col bg-white">
             <input
               type="text"
               placeholder="First Name"
-              className="w-full p-3 rounded-lg bg-gray-100 mb-3 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75 transition"
+              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              ref={(el) => (inputRefs.current[0] = el)}
             />
             <input
               type="text"
               placeholder="Last Name"
-              className="w-full p-3 rounded-lg bg-gray-100 mb-3 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75 transition duration-160"
+              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              ref={(el) => (inputRefs.current[1] = el)}
             />
             <input
               type="email"
               placeholder="Email"
-              className="w-full p-3 rounded-lg bg-gray-100 mb-3 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75 transition duration-160"
+              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              ref={(el) => (inputRefs.current[2] = el)}
             />
-            <div className="grid grid-cols-4 gap-3 mb-3">
-              <select className="col-span-1 p-3 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75 transition duration-160">
-                <option>+1</option>
-                <option>+44</option>
-                <option>+880</option>
-              </select>
-              <input
-                type="tel"
-                placeholder="Phone"
-                className="col-span-3 p-3 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75 transition duration-160"
-              />
-            </div>
+            <select
+              className="col-span-1 p-3 rounded-lg bg-gray-100 mb-3"
+              ref={(el) => (inputRefs.current[3] = el)}
+            >
+              <option>+1</option>
+              <option>+44</option>
+              <option>+880</option>
+            </select>
+            <input
+              type="tel"
+              placeholder="Phone"
+              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              ref={(el) => (inputRefs.current[4] = el)}
+            />
             <input
               type="text"
               placeholder="Job Title"
-              className="w-full p-3 rounded-lg bg-gray-100 mb-3 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75 transition duration-160"
+              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              ref={(el) => (inputRefs.current[5] = el)}
             />
             <textarea
               placeholder="Your message"
-              className="w-full p-3 rounded-lg bg-gray-100 h-32 mb-5 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75 transition duration-160"
+              className="w-full p-3 rounded-lg bg-gray-100 h-32 mb-5"
+              ref={(el) => (inputRefs.current[6] = el)}
             ></textarea>
-
             <button
               type="submit"
               className="flex w-fit items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-teal-400 to-teal-500 text-white font-medium"
+              ref={(el) => (inputRefs.current[7] = el)}
             >
-              Submit
-              <span className="ml-2">→</span>
+              Submit <span className="ml-2">→</span>
             </button>
           </form>
         </div>

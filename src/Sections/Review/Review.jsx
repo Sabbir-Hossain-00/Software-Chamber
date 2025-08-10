@@ -30,7 +30,6 @@ const reviews = [
     position: "Product Manager at FinCorp",
     logo: "/images/logo-3.png",
   },
-  // Add more reviews here if needed
 ];
 
 export const Review = () => {
@@ -40,19 +39,17 @@ export const Review = () => {
   const starsRef = useRef(null);
   const shineRef = useRef(null);
   const containerRef = useRef(null);
+  const headlineRef = useRef(null);
   const timeoutRef = useRef(null);
 
   useEffect(() => {
-    // Auto-play every 5 seconds
     timeoutRef.current = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
     }, 5000);
-
     return () => clearTimeout(timeoutRef.current);
   }, [currentIndex]);
 
   useEffect(() => {
-    // Quote mark shine loop (only once)
     if (shineRef.current) {
       gsap.to(shineRef.current, {
         opacity: 0.15,
@@ -65,7 +62,7 @@ export const Review = () => {
   }, []);
 
   useEffect(() => {
-    function playAnimation() {
+    function playQuoteAnimation() {
       gsap.fromTo(
         quoteRef.current,
         { opacity: 0 },
@@ -90,15 +87,38 @@ export const Review = () => {
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: "top 80%",
-        onEnter: () => playAnimation(),
-        onEnterBack: () => playAnimation(),
+        onEnter: () => playQuoteAnimation(),
+        onEnterBack: () => playQuoteAnimation(),
       });
     }, containerRef);
 
-    playAnimation();
+    playQuoteAnimation();
 
     return () => ctx.revert();
   }, [currentIndex]);
+
+  useEffect(() => {
+    // Headline fade-up with staggered lines
+    if (headlineRef.current) {
+      const lines = headlineRef.current.querySelectorAll(".headline-line");
+      gsap.fromTo(
+        lines,
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.12, // 120ms delay
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: headlineRef.current,
+            start: "top 85%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    }
+  }, []);
 
   const review = reviews[currentIndex];
 
@@ -110,18 +130,21 @@ export const Review = () => {
       <div>
         <SmarterIdea />
       </div>
-      <div>
-        <h1 className="md:text-6xl text-2xl font-medium text-center text-[#E9E9E9]">
-          Don’t just take our word for it. Hear <br /> what{" "}
-          <span className=" text-[#A5A5A5]">our clients say</span>{" "}
+
+      {/* Headline with lines for stagger */}
+      <div ref={headlineRef} className="text-center">
+        <h1 className="md:text-6xl text-2xl font-medium text-[#E9E9E9] leading-tight">
+          <span className="headline-line block">Don’t just take our word for it.</span>
+          <span className="headline-line block">
+            Hear what <span className="text-[#A5A5A5]">our clients say</span>
+          </span>
         </h1>
       </div>
+
       <div className="z-10 bg-[#090B0F] flex flex-col gap-16 md:mt-24 mt-6 shadow-[0_2px_20px_rgba(44,206,186,0.3)] rounded-2xl md:py-20 md:px-30 p-4 relative">
-        {/* Quote mark with shine */}
         <div
           ref={shineRef}
           className="absolute top-2 left-4 text-[6rem] text-[#00FFE0] opacity-10 pointer-events-none select-none"
-          style={{ userSelect: "none" }}
         >
           “
         </div>
@@ -157,7 +180,7 @@ export const Review = () => {
           </div>
         </div>
       </div>
-      {/* bg */}
+
       <div className="absolute -top-120 -left-10">
         <img src="/images/review-glow-top.png" alt="" />
       </div>

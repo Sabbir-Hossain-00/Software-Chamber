@@ -15,58 +15,60 @@ export const AwardAndPartern = () => {
     { src: "/images/image-7.png", label: "Auto Motive" },
   ];
 
+  // Company cards data including position classes
+  const companies = [
+    {
+      src: "/images/sopify.png",
+      label: "Sopify",
+      positionClass: "relative left-0 md:left-0",
+    },
+    {
+      src: "/images/talentqi.png",
+      label: "TalentQI",
+      positionClass: "relative left-0 md:left-0",
+    },
+    {
+      src: "/images/dropbox.png",
+      label: "DropBox",
+      positionClass: "relative right-0 md:right-17",
+    },
+    {
+      src: "/images/fliqpay.png",
+      label: "FliqPay",
+      positionClass: "relative right-0 md:right-17",
+    },
+    {
+      src: "/images/slack.png",
+      label: "Slack",
+      positionClass: "relative left-0 md:left-0",
+    },
+  ];
+
   return (
     <div className="container mx-auto px-3 py-20">
       {/* companies */}
-      <div className=" relative flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="relative flex flex-col md:flex-row justify-between items-center gap-4">
         <div>
-          <h1 className=" md:text-6xl text-2xl font-medium text-[#E9E9E9]">
+          <h1 className="md:text-6xl text-2xl font-medium text-[#E9E9E9]">
             Our Stack Powers of <br /> the{" "}
-            <span className=" text-[#A5A5A5]">World’s</span> Most <br />{" "}
-            <span className=" text-[#A5A5A5]">Beloved Companies</span>
+            <span className="text-[#A5A5A5]">World’s</span> Most <br />{" "}
+            <span className="text-[#A5A5A5]">Beloved Companies</span>
           </h1>
         </div>
-        <div className=" grid grid-cols-2 gap-4">
-          <div className="relative left-8 md:left-0 flex justify-center items-center gap-4 bg-[#2CCEBA] w-fit py-2 px-2 rounded-full">
-            <img
-              className=" w-8 p-2 bg-white rounded-full"
-              src="/images/sopify.png"
-              alt=""
-            />
-            <p>Sopify</p>
-          </div>
-          <div className=" relative left-8 md:left-0 flex justify-center items-center gap-4 bg-[#2CCEBA] w-fit py-2 px-2 rounded-full">
-            <img
-              className=" w-8 p-2 bg-white rounded-full"
-              src="/images/sopify.png"
-              alt=""
-            />
-            <p>Sopify</p>
-          </div>
-          <div className="relative right-8 md:right-17 flex justify-center items-center gap-4 bg-[#2CCEBA] w-fit py-2 px-2 rounded-full">
-            <img
-              className=" w-8 p-2 bg-white rounded-full"
-              src="/images/sopify.png"
-              alt=""
-            />
-            <p>Sopify</p>
-          </div>
-          <div className="relative right-8 md:right-17 flex justify-center items-center gap-4 bg-[#2CCEBA] w-fit py-2 px-2 rounded-full">
-            <img
-              className=" w-8 p-2 bg-white rounded-full"
-              src="/images/sopify.png"
-              alt=""
-            />
-            <p>Sopify</p>
-          </div>
-          <div className="relative left-8 md:left-0 flex justify-center items-center gap-4 bg-[#2CCEBA] w-fit py-2 px-2 rounded-full">
-            <img
-              className=" w-8 p-2 bg-white rounded-full"
-              src="/images/sopify.png"
-              alt=""
-            />
-            <p>Sopify</p>
-          </div>
+        <div className="grid grid-cols-2 gap-4">
+          {companies.map(({ src, label, positionClass }, i) => (
+            <div
+              key={i}
+              className={`${positionClass} flex justify-center items-center gap-4 bg-gradient-to-t from-[#2CCEBA0D]  to-[#2CCEBA] w-fit p-2 md:px-3 md:py-3 xl:px-6 xl:py-5 rounded-full`}
+            >
+              <img
+                className="w-8 md:w-9 md:h-9 xl:w-12 xl:h-12 p-2 xl:p-3 bg-white rounded-full"
+                src={src}
+                alt={label}
+              />
+              <p className="text-[#E9E9E9] font-medium mr-3 text-base xl:text-xl">{label}</p>
+            </div>
+          ))}
         </div>
       </div>
 

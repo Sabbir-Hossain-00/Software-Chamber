@@ -1,6 +1,9 @@
-import { FaArrowRight, FaChevronUp, FaChevronDown } from "react-icons/fa6";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa6";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Faq = () => {
   const faqs = [
@@ -28,19 +31,22 @@ export const Faq = () => {
 
   const [openIndex, setOpenIndex] = useState(null);
   const answerRefs = useRef([]);
+  const headlineRefs = useRef([]);
+  const containerRef = useRef(null);
 
   const toggleIndex = (index) => {
     setOpenIndex((prev) => (prev === index ? null : index));
   };
+
   const getHeightByBreakpoint = () => {
-  if (window.innerWidth >= 1600) return "80px"; 
-  if (window.innerWidth >= 1024) return "105px"; 
-  if (window.innerWidth >= 768) return "110px";  
-  return "250px";
-};
+    if (window.innerWidth >= 1600) return "80px";
+    if (window.innerWidth >= 1024) return "105px";
+    if (window.innerWidth >= 768) return "110px";
+    return "250px";
+  };
 
   useEffect(() => {
-    // Animate open/close on answers
+    // Accordion open/close animation
     answerRefs.current.forEach((el, i) => {
       if (!el) return;
       if (i === openIndex) {
@@ -51,7 +57,7 @@ export const Faq = () => {
           paddingBottom: 16,
           duration: 0.28,
           ease: "power1.out",
-          clearProps: "height", // remove fixed height after animation for responsiveness
+          clearProps: "height",
         });
       } else {
         gsap.to(el, {
@@ -66,24 +72,67 @@ export const Faq = () => {
     });
   }, [openIndex]);
 
+  useEffect(() => {
+    if (!headlineRefs.current.length) return;
+
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: "top 80%",
+      onEnter: () => {
+        gsap.fromTo(
+          headlineRefs.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.12,
+          }
+        );
+      },
+      onEnterBack: () => {
+        gsap.fromTo(
+          headlineRefs.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.12,
+          }
+        );
+      },
+    });
+  }, []);
+
   return (
-    <div className="container mx-auto px-3 py-20 relative z-10 ">
+    <div
+      ref={containerRef}
+      className="container mx-auto px-3 py-20 relative z-10"
+    >
       {/* Title */}
       <div className="space-y-6 relative z-10">
-        <h1 className="md:text-6xl text-2xl text-center font-medium">
+        <h1
+          ref={(el) => (headlineRefs.current[0] = el)}
+          className="md:text-6xl text-2xl text-center font-medium"
+        >
           Comprehensive Answers to the Most
         </h1>
-        <div className="flex justify-center items-start md:gap-3">
-          <img
-            className="md:w-13 w-8"
-            src="/images/charming-vector.png"
-            alt=""
-          />
+        <div
+          ref={(el) => (headlineRefs.current[1] = el)}
+          className="flex justify-center items-start md:gap-3"
+        >
+          <img className="md:w-13 w-8" src="/images/charming-vector.png" alt="" />
           <h1 className="md:text-6xl text-2xl text-center font-medium">
             Common Questions <span className="text-[#A5A5A5]">About Our</span>
           </h1>
         </div>
-        <div className="flex justify-center items-center gap-3">
+        <div
+          ref={(el) => (headlineRefs.current[2] = el)}
+          className="flex justify-center items-center gap-3"
+        >
           <h1 className="md:text-6xl text-2xl text-center font-medium">
             <span className="text-[#A5A5A5]">Service</span>s and How We{" "}
             <span className="text-[#A5A5A5]">Work</span>
@@ -123,7 +172,12 @@ export const Faq = () => {
               <div
                 ref={(el) => (answerRefs.current[index] = el)}
                 className="font-medium text-gray-700 w-[80%] overflow-hidden"
-                style={{ height: 0, opacity: 0, paddingTop: 0, paddingBottom: 0 }}
+                style={{
+                  height: 0,
+                  opacity: 0,
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                }}
               >
                 {faq.answer}
               </div>
