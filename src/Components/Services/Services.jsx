@@ -97,9 +97,9 @@ export const Services = () => {
   return (
     <div>
       {/* title */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center md:mt-6">
         <div className="flex items-center md:gap-4 gap-2">
-          <h1 className="md:text-8xl text-2xl font-medium bricolage-grotesque">Services</h1>
+          <h1 className="xl:text-8xl lg:text-6xl md:text-5xl text-3xl font-bold bricolage-grotesque">Services</h1>
           <img
             src="/images/charming-vector.png"
             className="md:w-12 w-8 "
@@ -111,7 +111,7 @@ export const Services = () => {
           onMouseEnter={handleArrowMouseEnter}
           onMouseLeave={handleArrowMouseLeave}
         >
-          <p>All Services</p>
+          <p className=" font-medium text-[#808080]">All Services</p>
           <span
             ref={arrowRef}
             className="p-2 bg-[#F3F3F3] rounded-full inline-block"
@@ -123,7 +123,7 @@ export const Services = () => {
       </div>
 
       {/* content */}
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-6 mt-20">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-6 md:mt-20 mt-10">
         {/* card-1 */}
         <div
           ref={addCardRef}

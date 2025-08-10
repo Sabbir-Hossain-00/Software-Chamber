@@ -49,7 +49,7 @@ export const ContactForm = () => {
   return (
     <div ref={sectionRef} className="container mx-auto px-3 py-20">
       {/* Heading */}
-      <h1 className="text-center md:text-6xl text-2xl font-bold bricolage-grotesque">
+      <h1 className="text-center xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-bold bricolage-grotesque">
         <span ref={(el) => (headlineRefs.current[0] = el)}>
           Let’s talk about your next
         </span>

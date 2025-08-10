@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import { ContactButton } from "../../Components/ContactButton/ContactButton";
 import { SmarterIdea } from "../../Components/SmarterIdea/SmarterIdea";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const AwardAndPartern = () => {
   // Logo data (you can expand/change this if you want)
@@ -44,12 +48,81 @@ export const AwardAndPartern = () => {
     },
   ];
 
+  // Refs for animation targets
+  const companyHeadingRefs = useRef([]);
+  const companyCardRefs = useRef([]);
+  const contactHeadingRefs = useRef([]);
+  const contactButtonRef = useRef(null);
+
+  // Helpers to add refs
+  companyHeadingRefs.current = [];
+  companyCardRefs.current = [];
+  contactHeadingRefs.current = [];
+
+  const addCompanyHeadingRef = (el) => {
+    if (el && !companyHeadingRefs.current.includes(el)) {
+      companyHeadingRefs.current.push(el);
+    }
+  };
+
+  const addCompanyCardRef = (el) => {
+    if (el && !companyCardRefs.current.includes(el)) {
+      companyCardRefs.current.push(el);
+    }
+  };
+
+  const addContactHeadingRef = (el) => {
+    if (el && !contactHeadingRefs.current.includes(el)) {
+      contactHeadingRefs.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    // Animate companies section heading + cards
+    const ctx = gsap.context(() => {
+      gsap.from(
+        [...companyHeadingRefs.current, ...companyCardRefs.current],
+        {
+          y: 20,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: companyHeadingRefs.current[0],
+            start: "top 85%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      // Animate contact section headings + button
+      gsap.from([...contactHeadingRefs.current, contactButtonRef.current], {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: contactHeadingRefs.current[0],
+          start: "top 85%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="container mx-auto px-3 py-20">
       {/* companies */}
       <div className="relative flex flex-col md:flex-row justify-between items-center gap-4">
         <div>
-          <h1 className="md:text-6xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque">
+          <h1
+            ref={addCompanyHeadingRef}
+            className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque"
+          >
             Our Stack Powers of <br /> the{" "}
             <span className="text-[#A5A5A5]">World’s</span> Most <br />{" "}
             <span className="text-[#A5A5A5]">Beloved Companies</span>
@@ -59,6 +132,7 @@ export const AwardAndPartern = () => {
           {companies.map(({ src, label, positionClass }, i) => (
             <div
               key={i}
+              ref={addCompanyCardRef}
               className={`${positionClass} flex justify-center items-center gap-4 bg-gradient-to-t from-[#2CCEBA0D]  to-[#2CCEBA] w-fit p-2 md:px-3 md:py-3 xl:px-6 xl:py-5 rounded-full`}
             >
               <img
@@ -66,32 +140,44 @@ export const AwardAndPartern = () => {
                 src={src}
                 alt={label}
               />
-              <p className="text-[#E9E9E9] font-medium mr-3 text-base xl:text-xl">{label}</p>
+              <p className="text-[#E9E9E9] font-medium mr-3 text-base xl:text-xl">
+                {label}
+              </p>
             </div>
           ))}
         </div>
       </div>
 
       {/* contact */}
-      <div className="bg-[url('/images/award-glow-center.png'),_url('/images/award-glow-left.png'),_url('/images/award-glow-right.png'),_url('/images/award-glow-sec-right.png')] bg-no-repeat bg-[position:top_left,_bottom_left,bottom_right,_bottom_right] bg-contain flex justify-center items-center flex-col md:gap-10 gap-3 mt-20 border border-[#22C1AD99] rounded-4xl md:p-20 p-10">
-        <div className="mb-6">
-          <SmarterIdea />
-        </div>
-        <div>
-          <img
-            className="p-5 bg-white rounded-full"
-            src="/images/logo-2.png"
-            alt="Main Logo"
-          />
-        </div>
-        <h1 className="text-center md:text-6xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque">
-          Uncover the Design and Development
-        </h1>
-        <h1 className="text-center md:text-6xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque">
-          Projects <span className="text-[#A5A5A5]">That Set Us Apart</span>
-        </h1>
-        <div className="mt-6">
-          <ContactButton />
+      <div className="mt-20 bg-gradient-to-t from-[#D387FF00]  to-[#22C1AD99] rounded-4xl p-[1px]">
+        <div
+          className="bg-[#090B0F] bg-[url('/images/award-glow-center.png'),_url('/images/award-glow-left.png'),_url('/images/award-glow-right.png'),_url('/images/award-glow-sec-right.png')] bg-no-repeat bg-[position:top_left,_bottom_left,bottom_right,_bottom_right] bg-contain flex justify-center items-center flex-col md:gap-10 gap-3  rounded-4xl md:p-20 p-10"
+        >
+          <div className="mb-6">
+            <SmarterIdea />
+          </div>
+          <div>
+            <img
+              className="p-5 bg-white rounded-full"
+              src="/images/logo-2.png"
+              alt="Main Logo"
+            />
+          </div>
+          <h1
+            ref={addContactHeadingRef}
+            className="text-center xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque"
+          >
+            Uncover the Design and Development
+          </h1>
+          <h1
+            ref={addContactHeadingRef}
+            className="text-center xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque"
+          >
+            Projects <span className="text-[#A5A5A5]">That Set Us Apart</span>
+          </h1>
+          <div className="mt-6" ref={contactButtonRef}>
+            <ContactButton />
+          </div>
         </div>
       </div>
 

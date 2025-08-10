@@ -133,7 +133,7 @@ export const Review = () => {
 
       {/* Headline with lines for stagger */}
       <div ref={headlineRef} className="text-center">
-        <h1 className="md:text-6xl text-2xl font-medium text-[#E9E9E9] leading-tight bricolage-grotesque">
+        <h1 className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] leading-tight bricolage-grotesque">
           <span className="headline-line block">Don’t just take our word for it.</span>
           <span className="headline-line block">
             Hear what <span className="text-[#A5A5A5]">our clients say</span>

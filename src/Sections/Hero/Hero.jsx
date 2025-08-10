@@ -71,13 +71,13 @@ export const Hero = () => {
         <div>
           <h1
             ref={addHeadlineRef}
-            className="md:text-6xl text-2xl font-semibold text-center mb-3 text-[#00FFE0]"
+            className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-semibold text-center mb-3 text-[#00FFE0]"
           >
             We are your Software
           </h1>
           <h1
             ref={addHeadlineRef}
-            className="md:text-6xl text-2xl font-semibold text-center mb-3 flex items-center justify-center md:gap-4 gap-2 bg-gradient-to-b from-teal-400 to-white bg-clip-text text-transparent"
+            className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-semibold text-center mb-3 flex items-center justify-center md:gap-4 gap-2 bg-gradient-to-b from-teal-400 to-white bg-clip-text text-transparent"
           >
             Development
             <IconBox ref={addBadgeRef} src="/images/man_icon.png" alt="Man Icon" />
@@ -86,7 +86,7 @@ export const Hero = () => {
           </h1>
           <h1
             ref={addHeadlineRef}
-            className="md:text-6xl text-2xl font-semibold text-center mb-3"
+            className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-semibold text-center mb-3"
           >
             in The Cloud
           </h1>

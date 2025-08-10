@@ -117,7 +117,7 @@ export const Faq = () => {
       <div className="space-y-6 relative z-10 bricolage-grotesque">
         <h1
           ref={(el) => (headlineRefs.current[0] = el)}
-          className="md:text-6xl text-2xl text-center font-medium"
+          className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center font-medium"
         >
           Comprehensive Answers to the Most
         </h1>
@@ -126,7 +126,7 @@ export const Faq = () => {
           className="flex justify-center items-start md:gap-3"
         >
           <img className="md:w-13 w-8" src="/images/charming-vector.png" alt="" />
-          <h1 className="md:text-6xl text-2xl text-center font-medium">
+          <h1 className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center font-medium">
             Common Questions <span className="text-[#A5A5A5]">About Our</span>
           </h1>
         </div>
@@ -134,7 +134,7 @@ export const Faq = () => {
           ref={(el) => (headlineRefs.current[2] = el)}
           className="flex justify-center items-center gap-3"
         >
-          <h1 className="md:text-6xl text-2xl text-center font-medium">
+          <h1 className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center font-medium">
             <span className="text-[#A5A5A5]">Service</span>s and How We{" "}
             <span className="text-[#A5A5A5]">Work</span>
           </h1>
@@ -144,7 +144,7 @@ export const Faq = () => {
 
       {/* Faq heading */}
       <div className="flex justify-between items-center my-20 py-10 border-b border-gray-400  border-dashed">
-        <h1 className="text-7xl font-bold bricolage-grotesque">FAQ</h1>
+        <h1 className="xl:text-8xl lg:text-6xl md:text-5xl text-3xl font-bold bricolage-grotesque">FAQ</h1>
         <div className="text-xl font-medium flex justify-center items-center gap-4">
           <p>ALL FAQ</p>
           <FaArrowRight className=" bg-[#2CD6C6] w-10 h-10 p-3 rounded-full"/>

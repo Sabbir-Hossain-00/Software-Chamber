@@ -85,7 +85,7 @@ export const Solutions = () => {
   return (
     <div>
       {/* services title */}
-      <div className="flex flex-col justify-center items-center gap-4 mb-20 bricolage-grotesque">
+      <div className="flex flex-col justify-center items-center gap-4 mb-20 bricolage-grotesque font-medium">
         <div
           ref={addTitleLineRef}
           className=" flex justify-center items-start md:gap-2 gap-1"
@@ -122,7 +122,7 @@ export const Solutions = () => {
       </div>
 
       {/* services content */}
-      <div className="flex justify-between items-start gap-10 flex-col-reverse md:flex-row">
+      <div className="flex justify-between items-start gap-10 flex-col-reverse lg:flex-row md:pt-10">
         <div className=" flex flex-col gap-10 w-[350px]">
           {stats.map((stat, indx) => (
             <div key={indx}>
@@ -145,7 +145,7 @@ export const Solutions = () => {
           <img
             ref={imgRef}
             src="/images/peoples.png"
-            className="xl:w-100 lg:w-200"
+            className=" 2xl:h-80 xl:h-86 lg:h-90 h-full w-full"
             alt="People illustration"
           />
         </div>

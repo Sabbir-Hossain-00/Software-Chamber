@@ -20,6 +20,17 @@ export const WhyChoseSoftwareChamber = () => {
   const iconsRef = useRef([]);
   iconsRef.current = [];
 
+  // Refs for heading lines and button for animation
+  const headingRefs = useRef([]);
+  headingRefs.current = [];
+
+  // Helper to add refs to headingRefs array
+  const addHeadingRef = (el) => {
+    if (el && !headingRefs.current.includes(el)) {
+      headingRefs.current.push(el);
+    }
+  };
+
   const addCardRef = (el) => {
     if (el && !cardsRef.current.includes(el)) {
       cardsRef.current.push(el);
@@ -31,6 +42,26 @@ export const WhyChoseSoftwareChamber = () => {
       iconsRef.current.push(el);
     }
   };
+
+  useEffect(() => {
+    // Animate heading lines on scroll with fade-up and stagger
+    const ctx = gsap.context(() => {
+      gsap.from(headingRefs.current, {
+        scrollTrigger: {
+          trigger: headingRefs.current[0], // first heading line triggers animation
+          start: "top 80%",
+          toggleActions: "restart none none none",
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: "power3.out",
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   useEffect(() => {
     // Scroll-trigger fade + rotate animation on cards
@@ -54,7 +85,7 @@ export const WhyChoseSoftwareChamber = () => {
     });
   }, []);
 
-  // Hover handlers
+  // Hover handlers for cards
   const handleCardMouseEnter = (index) => {
     const card = cardsRef.current[index];
     const icon = iconsRef.current[index];
@@ -62,7 +93,6 @@ export const WhyChoseSoftwareChamber = () => {
       gsap.to(card, {
         y: "-=6",
         boxShadow: "0 8px 20px rgba(39,180,163,0.3)",
-        // Removed outline to avoid black border
         outline: "none",
         duration: 0.25,
         ease: "power1.out",
@@ -75,7 +105,6 @@ export const WhyChoseSoftwareChamber = () => {
         ease: "power1.out",
       });
     }
-    // Pause swiper autoplay
     if (swiperRef.current) swiperRef.current.autoplay.stop();
   };
 
@@ -98,7 +127,6 @@ export const WhyChoseSoftwareChamber = () => {
         ease: "power1.out",
       });
     }
-    // Resume swiper autoplay
     if (swiperRef.current) swiperRef.current.autoplay.start();
   };
 
@@ -145,18 +173,24 @@ export const WhyChoseSoftwareChamber = () => {
     <div className="container mx-auto px-7 md:py-20 py-10">
       {/* Section Heading */}
       <div className="flex flex-col justify-center items-center gap-6 text-center md:mb-10">
-        <h1 className="md:text-5xl text-2xl font-medium bricolage-grotesque">
+        <h1
+          ref={addHeadingRef}
+          className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium bricolage-grotesque"
+        >
           Why Choose <br /> Softwarechamber
         </h1>
-        <p className="text-[#494949]">
+        <p ref={addHeadingRef} className="text-[#494949]">
           Deliver personalized experiences to your customers with AI-powered{" "}
           <br />
           recommendation engines and dynamic content generation.
         </p>
-        <button className="bg-gradient-to-r from-[#16AD71]  to-[#2CCEBA] px-2 py-2 md:px-5 md:py-4 rounded-full text-[#E9E9E9] font-medium flex justify-center text-base md:text-xl items-center gap-6">
+        <button
+          ref={addHeadingRef}
+          className="bg-gradient-to-r from-[#16AD71]  to-[#2CCEBA] px-2 py-2 md:px-5 md:py-4 rounded-full text-[#E9E9E9] font-medium flex justify-center text-base md:text-xl items-center gap-6"
+        >
           Let’s Discuss{" "}
           <span className="bg-[#E9E9E9] rounded-full text-black p-2 md:p-3">
-            <TbArrowUpRight size={24}/>
+            <TbArrowUpRight size={24} />
           </span>
         </button>
       </div>
@@ -185,10 +219,7 @@ export const WhyChoseSoftwareChamber = () => {
           modules={[Navigation, Autoplay]}
         >
           {features.map((feature, index) => (
-            <SwiperSlide
-              key={index}
-              className="flex justify-center py-7 mt-16"
-            >
+            <SwiperSlide key={index} className="flex justify-center py-7 mt-16">
               <div
                 ref={addCardRef}
                 onMouseEnter={() => handleCardMouseEnter(index)}
@@ -198,7 +229,9 @@ export const WhyChoseSoftwareChamber = () => {
                 }`}
               >
                 <div className="border-b border-b-[#A5A5A5] pb-4 flex justify-between items-center">
-                  <h1 className="text-2xl font-medium bricolage-grotesque">{feature.title}</h1>
+                  <h1 className="text-2xl font-medium bricolage-grotesque">
+                    {feature.title}
+                  </h1>
                   <img
                     ref={addIconRef}
                     className="bg-[#2CCEBA] p-3 rounded-full w-10"
