@@ -99,10 +99,10 @@ export const Services = () => {
       {/* title */}
       <div className="flex justify-between items-center">
         <div className="flex items-center md:gap-4 gap-2">
-          <h1 className="md:text-8xl text-2xl font-medium">Services</h1>
+          <h1 className="md:text-8xl text-2xl font-medium bricolage-grotesque">Services</h1>
           <img
             src="/images/charming-vector.png"
-            className="md:w-12 w-8 md:mt-6"
+            className="md:w-12 w-8 "
             alt="Charming vector"
           />
         </div>

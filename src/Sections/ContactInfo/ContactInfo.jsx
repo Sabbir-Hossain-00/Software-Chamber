@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaArrowUp } from "react-icons/fa6";
+import { GoArrowUpRight } from "react-icons/go";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,8 +50,8 @@ export const ContactInfo = () => {
 
   return (
     <div className="container mx-auto px-3 py-24 border-dashed border-b" ref={containerRef}>
-      <h1 className="md:text-8xl text-3xl font-medium text-[#E9E9E9]">LET’S TALK</h1>
-      <div className="grid md:grid-cols-3 gap-10 2xl:gap-90 xl:gap-60 lg:gap-30 md:gap-10 mt-20">
+      <h1 className="md:text-8xl text-3xl font-medium text-[#E9E9E9] bricolage-grotesque">LET’S TALK</h1>
+      <div className="grid md:grid-cols-3 gap-10 2xl:gap-75 xl:gap-45 lg:gap-15 md:gap-10 mt-20">
         {/* Left column */}
         <div className="space-y-20 fade-up-col">
           <p className="text-[#A6A6A6] font-medium">
@@ -59,13 +61,16 @@ export const ContactInfo = () => {
             <h2 className="text-2xl font-medium text-[#E9E9E9]">Social media</h2>
             <div className="grid grid-cols-3 gap-3">
               {["Instagram", "Twitter", "Tiktok", "Facebook", "LinkedIn", "Youtube"].map((platform) => (
-                <a
+                <div className="flex justify-center items-center gap-2 min-w-fit">
+                  <a
                   key={platform}
                   href="#"
-                  className="text-[#A6A6A6] font-medium transform transition-transform duration-300 hover:rotate-8 hover:scale-105 inline-block"
+                  className="text-[#A6A6A6] font-medium transform transition-transform duration-300 hover:rotate-8 hover:scale-105"
                 >
                   {platform}
                 </a>
+                <GoArrowUpRight />
+                </div>
               ))}
             </div>
           </div>
@@ -104,10 +109,10 @@ export const ContactInfo = () => {
       {showTopBtn && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-10 right-10 z-50 bg-teal-400 hover:bg-teal-500 text-white rounded-full w-10 h-10 shadow-lg transition-opacity duration-300"
+          className="fixed bottom-10 flex justify-center items-center right-10 z-50 bg-teal-400 hover:bg-teal-500 text-white rounded-full w-10 h-10 shadow-lg transition-opacity duration-300"
           aria-label="Back to top"
         >
-          ↑
+          <FaArrowUp />
         </button>
       )}
     </div>

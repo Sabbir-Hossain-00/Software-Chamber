@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TbArrowUpRight } from "react-icons/tb";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +49,7 @@ export const ContactForm = () => {
   return (
     <div ref={sectionRef} className="container mx-auto px-3 py-20">
       {/* Heading */}
-      <h1 className="text-center md:text-6xl text-2xl font-bold leading-tight">
+      <h1 className="text-center md:text-6xl text-2xl font-bold bricolage-grotesque">
         <span ref={(el) => (headlineRefs.current[0] = el)}>
           Let’s talk about your next
         </span>
@@ -69,7 +70,7 @@ export const ContactForm = () => {
       {/* Image + Form */}
       <div className="mt-20 grid md:grid-cols-2 grid-cols-1 gap-10 items-start">
         {/* Left Image */}
-        <div className="flex h-[500px]" ref={imageRef}>
+        <div className="flex h-[580px]" ref={imageRef}>
           <img
             src="/images/man-2.png"
             alt="Smiling person"
@@ -125,10 +126,12 @@ export const ContactForm = () => {
             ></textarea>
             <button
               type="submit"
-              className="flex w-fit items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-teal-400 to-teal-500 text-white font-medium"
+              className="flex gap-7 w-fit items-center  px-4 py-2.5 text-base md:text-xl rounded-full bg-gradient-to-r from-teal-400 to-teal-500 text-white font-medium justify-between "
               ref={(el) => (inputRefs.current[7] = el)}
             >
-              Submit <span className="ml-2">→</span>
+              Submit <span className="bg-[#E9E9E9] rounded-full text-black p-2 md:p-3">
+                          <TbArrowUpRight size={24}/>
+                        </span>
             </button>
           </form>
         </div>

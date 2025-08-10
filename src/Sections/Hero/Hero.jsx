@@ -64,7 +64,7 @@ export const Hero = () => {
   return (
     <div className="container px-3 mx-auto bg-[url(images/frame.png)] md:pt-20 pt-10 flex justify-center items-center flex-col ">
       {/* Hero content */}
-      <div className="bg-[url(images/vector_dot.png)] flex flex-col justify-center items-center gap-3 md:pb-15 pb-10">
+      <div className="bg-[url(images/vector_dot.png)] flex flex-col justify-center items-center gap-3 md:pb-15 pb-10 bricolage-grotesque">
         <div>
           <SmarterIdea />
         </div>

@@ -1,7 +1,8 @@
-import { FaChevronUp, FaChevronDown } from "react-icons/fa6";
+import { FaChevronUp, FaChevronDown, FaArrowRight } from "react-icons/fa6";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BsArrowRight } from "react-icons/bs";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,7 +114,7 @@ export const Faq = () => {
       className="container mx-auto px-3 py-20 relative z-10"
     >
       {/* Title */}
-      <div className="space-y-6 relative z-10">
+      <div className="space-y-6 relative z-10 bricolage-grotesque">
         <h1
           ref={(el) => (headlineRefs.current[0] = el)}
           className="md:text-6xl text-2xl text-center font-medium"
@@ -138,6 +139,15 @@ export const Faq = () => {
             <span className="text-[#A5A5A5]">Work</span>
           </h1>
           <img className="md:w-13 w-8" src="/images/up-vector.png" alt="" />
+        </div>
+      </div>
+
+      {/* Faq heading */}
+      <div className="flex justify-between items-center my-20 py-10 border-b border-gray-400  border-dashed">
+        <h1 className="text-7xl font-bold bricolage-grotesque">FAQ</h1>
+        <div className="text-xl font-medium flex justify-center items-center gap-4">
+          <p>ALL FAQ</p>
+          <FaArrowRight className=" bg-[#2CD6C6] w-10 h-10 p-3 rounded-full"/>
         </div>
       </div>
 

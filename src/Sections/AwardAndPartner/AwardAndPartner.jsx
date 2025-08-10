@@ -49,7 +49,7 @@ export const AwardAndPartern = () => {
       {/* companies */}
       <div className="relative flex flex-col md:flex-row justify-between items-center gap-4">
         <div>
-          <h1 className="md:text-6xl text-2xl font-medium text-[#E9E9E9]">
+          <h1 className="md:text-6xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque">
             Our Stack Powers of <br /> the{" "}
             <span className="text-[#A5A5A5]">World’s</span> Most <br />{" "}
             <span className="text-[#A5A5A5]">Beloved Companies</span>
@@ -84,10 +84,10 @@ export const AwardAndPartern = () => {
             alt="Main Logo"
           />
         </div>
-        <h1 className="text-center md:text-6xl text-2xl font-medium text-[#E9E9E9]">
+        <h1 className="text-center md:text-6xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque">
           Uncover the Design and Development
         </h1>
-        <h1 className="text-center md:text-6xl text-2xl font-medium text-[#E9E9E9]">
+        <h1 className="text-center md:text-6xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque">
           Projects <span className="text-[#A5A5A5]">That Set Us Apart</span>
         </h1>
         <div className="mt-6">

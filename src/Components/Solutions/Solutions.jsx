@@ -85,7 +85,7 @@ export const Solutions = () => {
   return (
     <div>
       {/* services title */}
-      <div className="flex flex-col justify-center items-center gap-4 mb-20">
+      <div className="flex flex-col justify-center items-center gap-4 mb-20 bricolage-grotesque">
         <div
           ref={addTitleLineRef}
           className=" flex justify-center items-start md:gap-2 gap-1"

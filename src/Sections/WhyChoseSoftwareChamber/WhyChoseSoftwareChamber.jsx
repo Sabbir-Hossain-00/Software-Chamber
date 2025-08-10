@@ -145,7 +145,7 @@ export const WhyChoseSoftwareChamber = () => {
     <div className="container mx-auto px-7 md:py-20 py-10">
       {/* Section Heading */}
       <div className="flex flex-col justify-center items-center gap-6 text-center md:mb-10">
-        <h1 className="md:text-5xl text-2xl font-medium">
+        <h1 className="md:text-5xl text-2xl font-medium bricolage-grotesque">
           Why Choose <br /> Softwarechamber
         </h1>
         <p className="text-[#494949]">
@@ -153,10 +153,10 @@ export const WhyChoseSoftwareChamber = () => {
           <br />
           recommendation engines and dynamic content generation.
         </p>
-        <button className="bg-gradient-to-r from-[#16AD71] from-[0%] to-[#2CCEBA] to-[100%] px-2 py-2 rounded-full text-[#E9E9E9] font-medium flex justify-center items-center gap-6">
+        <button className="bg-gradient-to-r from-[#16AD71]  to-[#2CCEBA] px-2 py-2 md:px-5 md:py-4 rounded-full text-[#E9E9E9] font-medium flex justify-center text-base md:text-xl items-center gap-6">
           Let’s Discuss{" "}
-          <span className="bg-[#E9E9E9] rounded-full text-black p-2">
-            <TbArrowUpRight />
+          <span className="bg-[#E9E9E9] rounded-full text-black p-2 md:p-3">
+            <TbArrowUpRight size={24}/>
           </span>
         </button>
       </div>
@@ -198,7 +198,7 @@ export const WhyChoseSoftwareChamber = () => {
                 }`}
               >
                 <div className="border-b border-b-[#A5A5A5] pb-4 flex justify-between items-center">
-                  <h1 className="text-xl font-medium">{feature.title}</h1>
+                  <h1 className="text-2xl font-medium bricolage-grotesque">{feature.title}</h1>
                   <img
                     ref={addIconRef}
                     className="bg-[#2CCEBA] p-3 rounded-full w-10"

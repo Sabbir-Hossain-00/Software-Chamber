@@ -10,8 +10,8 @@ export const SoftwareDevelopment = () => {
             <div>
               <SmarterIdea />
             </div>
-            <h1 className="md:text-6xl text-3xl">Our Software </h1>
-            <h1 className=" text-[#A5A5A5] md:text-6xl text-3xl">
+            <h1 className="md:text-6xl text-3xl bricolage-grotesque">Our Software </h1>
+            <h1 className=" text-[#A5A5A5] md:text-6xl text-3xl bricolage-grotesque">
               Development Process
             </h1>
             <p className="text-center text-[#808080]">
