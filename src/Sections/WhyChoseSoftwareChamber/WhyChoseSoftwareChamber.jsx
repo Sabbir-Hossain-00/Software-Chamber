@@ -170,16 +170,16 @@ export const WhyChoseSoftwareChamber = () => {
   ];
 
   return (
-    <div className="container mx-auto px-7 md:py-20 py-10">
+    <div className="2xl:max-w-[1760px] mx-auto px-7 2xl:py-30 md:py-20 py-10">
       {/* Section Heading */}
       <div className="flex flex-col justify-center items-center gap-6 text-center md:mb-10">
         <h1
           ref={addHeadingRef}
-          className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium bricolage-grotesque"
+          className="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium bricolage-grotesque"
         >
           Why Choose <br /> Softwarechamber
         </h1>
-        <p ref={addHeadingRef} className="text-[#494949]">
+        <p ref={addHeadingRef} className="2xl:text-2xl text-[#494949]">
           Deliver personalized experiences to your customers with AI-powered{" "}
           <br />
           recommendation engines and dynamic content generation.
@@ -224,22 +224,22 @@ export const WhyChoseSoftwareChamber = () => {
                 ref={addCardRef}
                 onMouseEnter={() => handleCardMouseEnter(index)}
                 onMouseLeave={() => handleCardMouseLeave(index)}
-                className={`w-full max-w-sm p-6 rounded-3xl bg-[#F3F3F3] transition-all duration-300 ease-in-out flex flex-col justify-between min-h-[260px] ${
+                className={`w-full  p-6 2xl:pb-12 2xl:p-10 rounded-3xl bg-[#F3F3F3] transition-all duration-300 ease-in-out 2xl:gap-10 flex flex-col justify-between min-h-[260px] ${
                   index % 2 === 0 ? "relative bottom-12" : ""
                 }`}
               >
-                <div className="border-b border-b-[#A5A5A5] pb-4 flex justify-between items-center">
-                  <h1 className="text-2xl font-medium bricolage-grotesque">
+                <div className="border-b border-b-[#A5A5A5] pb-4 2xl:pb-6 flex justify-between items-center">
+                  <h1 className="2xl:text-4xl text-2xl font-medium bricolage-grotesque">
                     {feature.title}
                   </h1>
                   <img
                     ref={addIconRef}
-                    className="bg-[#2CCEBA] p-3 rounded-full w-10"
+                    className="bg-[#2CCEBA] p-3 2xl:p-4 rounded-full w-10 2xl:w-14"
                     src={feature.icon}
                     alt={feature.title}
                   />
                 </div>
-                <p className="text-[#494949]">{feature.description}</p>
+                <p className="2xl:text-2xl text-[#494949]">{feature.description}</p>
               </div>
             </SwiperSlide>
           ))}

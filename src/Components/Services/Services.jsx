@@ -99,7 +99,7 @@ export const Services = () => {
       {/* title */}
       <div className="flex justify-between items-center md:mt-6">
         <div className="flex items-center md:gap-4 gap-2">
-          <h1 className="xl:text-8xl lg:text-6xl md:text-5xl text-3xl font-bold bricolage-grotesque">Services</h1>
+          <h1 className="2xl:text-9xl xl:text-8xl lg:text-6xl md:text-5xl text-3xl font-bold bricolage-grotesque">Services</h1>
           <img
             src="/images/charming-vector.png"
             className="md:w-12 w-8 "
@@ -111,10 +111,10 @@ export const Services = () => {
           onMouseEnter={handleArrowMouseEnter}
           onMouseLeave={handleArrowMouseLeave}
         >
-          <p className=" font-medium text-[#808080]">All Services</p>
+          <p className="2xl:text-2xl font-medium text-[#808080]">All Services</p>
           <span
             ref={arrowRef}
-            className="p-2 bg-[#F3F3F3] rounded-full inline-block"
+            className="p-2 2xl:p-3 bg-[#F3F3F3] rounded-full inline-block"
             style={{ display: "inline-flex" }}
           >
             <FaArrowRightLong />
@@ -123,59 +123,59 @@ export const Services = () => {
       </div>
 
       {/* content */}
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-6 md:mt-20 mt-10">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-6 md:mt-20 mt-10 2xl:mb-10">
         {/* card-1 */}
         <div
           ref={addCardRef}
-          className="bg-[#F3F3F3] md:p-12 p-5 rounded-3xl flex flex-col gap-6 cursor-pointer"
+          className="bg-[#F3F3F3] md:p-12 p-5 rounded-3xl flex flex-col gap-6 2xl:gap-10 cursor-pointer"
           onMouseEnter={handleCardMouseEnter}
           onMouseLeave={handleCardMouseLeave}
         >
-          <h1 className="text-3xl font-medium">Web & Mobile App Development</h1>
-          <p className="text-[#808080]">
+          <h1 className="2xl:text-5xl text-3xl font-medium">Web & Mobile App Development</h1>
+          <p className="2xl:text-2xl text-[#808080]">
             Software Chamber specializes in creating powerful, scalable, and
             secure e-
           </p>
-          <span className="bg-white p-4 w-fit rounded-full shadow-2xl inline-flex">
-            <GoArrowUpRight />
+          <span className="bg-white 2xl:p-6 p-4 w-fit rounded-full shadow-2xl inline-flex">
+            <GoArrowUpRight size={26}/>
           </span>
         </div>
 
         {/* card-2 */}
         <div
           ref={addCardRef}
-          className="bg-[#27B4A3] text-white md:p-12 p-5 rounded-3xl flex flex-col gap-6 cursor-pointer"
+          className="bg-[#27B4A3] text-white md:p-12 p-5 rounded-3xl flex flex-col gap-6 2xl:gap-10 cursor-pointer"
           onMouseEnter={handleCardMouseEnter}
           onMouseLeave={handleCardMouseLeave}
         >
-          <h1 className="text-3xl font-medium">
+          <h1 className="2xl:text-5xl text-3xl font-medium">
             Application Software Services
           </h1>
-          <p>
+          <p className="2xl:text-2xl ">
             Software Chamber specializes in creating powerful, scalable, and
             secure e-
           </p>
-          <span className="bg-white text-black p-4 w-fit rounded-full shadow-2xl inline-flex">
-            <GoArrowUpRight />
+          <span className="bg-white text-black 2xl:p-6 p-4 w-fit rounded-full shadow-2xl inline-flex">
+            <GoArrowUpRight size={26}/>
           </span>
         </div>
 
         {/* card-3 */}
         <div
           ref={addCardRef}
-          className="bg-[#F3F3F3] md:p-12 p-5 rounded-3xl flex flex-col gap-6 cursor-pointer"
+          className="bg-[#F3F3F3] md:p-12 p-5 rounded-3xl flex flex-col gap-6 2xl:gap-10 cursor-pointer"
           onMouseEnter={handleCardMouseEnter}
           onMouseLeave={handleCardMouseLeave}
         >
-          <h1 className="text-3xl font-medium">
+          <h1 className="2xl:text-5xl text-3xl font-medium">
             Software Coding & Optimization
           </h1>
-          <p className="text-[#808080]">
+          <p className="2xl:text-2xl text-[#808080]">
             Software Chamber specializes in creating powerful, scalable, and
             secure e-
           </p>
-          <span className="bg-white p-4 w-fit rounded-full shadow-2xl inline-flex">
-            <GoArrowUpRight />
+          <span className="bg-white 2xl:p-6 p-4 w-fit rounded-full shadow-2xl inline-flex">
+            <GoArrowUpRight size={26}/>
           </span>
         </div>
       </div>

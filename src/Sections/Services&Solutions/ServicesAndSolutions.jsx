@@ -3,7 +3,7 @@ import { Solutions } from "../../Components/Solutions/Solutions"
 
 export const ServicesAndSolutions = ()=>{
     return(
-        <div className=" container mx-auto px-3">
+        <div className=" 2xl:max-w-[1760px] mx-auto px-3">
            <div className="py-20">
             <Solutions/>
            </div>

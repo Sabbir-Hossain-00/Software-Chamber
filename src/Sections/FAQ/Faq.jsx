@@ -111,13 +111,13 @@ export const Faq = () => {
   return (
     <div
       ref={containerRef}
-      className="container mx-auto px-3 py-20 relative z-10"
+      className="2xl:max-w-[1760px] mx-auto px-3 2xl:py-30 py-20 relative z-10"
     >
       {/* Title */}
       <div className="space-y-6 relative z-10 bricolage-grotesque">
         <h1
           ref={(el) => (headlineRefs.current[0] = el)}
-          className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center font-medium"
+          className="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center font-medium"
         >
           Comprehensive Answers to the Most
         </h1>
@@ -125,8 +125,8 @@ export const Faq = () => {
           ref={(el) => (headlineRefs.current[1] = el)}
           className="flex justify-center items-start md:gap-3"
         >
-          <img className="md:w-13 w-8" src="/images/charming-vector.png" alt="" />
-          <h1 className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center font-medium">
+          <img className="2xl:w-16 2xl:mt-2 md:w-13 w-8" src="/images/charming-vector.png" alt="" />
+          <h1 className="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center font-medium">
             Common Questions <span className="text-[#A5A5A5]">About Our</span>
           </h1>
         </div>
@@ -134,20 +134,20 @@ export const Faq = () => {
           ref={(el) => (headlineRefs.current[2] = el)}
           className="flex justify-center items-center gap-3"
         >
-          <h1 className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center font-medium">
+          <h1 className="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center font-medium">
             <span className="text-[#A5A5A5]">Service</span>s and How We{" "}
             <span className="text-[#A5A5A5]">Work</span>
           </h1>
-          <img className="md:w-13 w-8" src="/images/up-vector.png" alt="" />
+          <img className="2xl:w-16 md:w-13 w-8" src="/images/up-vector.png" alt="" />
         </div>
       </div>
 
       {/* Faq heading */}
-      <div className="flex justify-between items-center my-20 py-10 border-b border-gray-400  border-dashed">
-        <h1 className="xl:text-8xl lg:text-6xl md:text-5xl text-3xl font-bold bricolage-grotesque">FAQ</h1>
-        <div className="text-xl font-medium flex justify-center items-center gap-4">
+      <div className="flex justify-between items-center my-20 py-10 2xl:pb-20 border-b border-gray-400  border-dashed">
+        <h1 className="2xl:text-9xl xl:text-8xl lg:text-6xl md:text-5xl text-3xl font-bold bricolage-grotesque">FAQ</h1>
+        <div className="2xl:text-3xl text-xl font-medium flex justify-center items-center gap-4">
           <p>ALL FAQ</p>
-          <FaArrowRight className=" bg-[#2CD6C6] w-10 h-10 p-3 rounded-full"/>
+          <FaArrowRight className=" bg-[#2CD6C6] w-10 h-10 2xl:w-13 2xl:h-13 p-3 2xl:p-4 rounded-full"/>
         </div>
       </div>
 
@@ -164,24 +164,24 @@ export const Faq = () => {
               }`}
               onClick={() => toggleIndex(index)}
             >
-              <div className="flex justify-between w-full text-left md:text-3xl text-lg font-semibold text-black py-6">
+              <div className="2xl:text-4xl flex justify-between w-full text-left md:text-3xl text-lg font-semibold text-black py-6">
                 {faq.question}
                 <span
-                  className={`h-fit md:p-4 p-3 rounded-full flex items-center justify-center transition-colors ${
+                  className={`h-fit 2xl:p-6 md:p-4 p-3 rounded-full flex items-center justify-center transition-colors ${
                     isOpen ? "bg-[#2CD6C6]" : "bg-black"
                   }`}
                 >
                   {isOpen ? (
-                    <FaChevronUp className="w-4 h-4 text-white" />
+                    <FaChevronUp className="w-4 h-4 text-white 2xl:w-6 2xl:h-6" />
                   ) : (
-                    <FaChevronDown className="w-4 h-4 text-white" />
+                    <FaChevronDown className="w-4 h-4 text-white 2xl:w-6 2xl:h-6" />
                   )}
                 </span>
               </div>
 
               <div
                 ref={(el) => (answerRefs.current[index] = el)}
-                className="font-medium text-gray-700 w-[80%] overflow-hidden"
+                className="2xl:text-2xl font-medium text-gray-700 w-[80%] overflow-hidden"
                 style={{
                   height: 0,
                   opacity: 0,

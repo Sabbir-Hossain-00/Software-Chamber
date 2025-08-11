@@ -4,7 +4,7 @@ export const IconBox = forwardRef(({ src, alt = "", size = "w-9" }, ref) => {
   return (
     <span
       ref={ref}
-      className="rounded p-2 bg-black w-fit"
+      className="rounded p-2 2xl:p-5 bg-black w-fit"
       style={{
         boxShadow: "inset 0 2px 10px 4px rgba(13, 148, 136, 0.5)",
       }}

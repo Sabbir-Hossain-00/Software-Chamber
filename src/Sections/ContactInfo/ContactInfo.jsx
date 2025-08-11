@@ -49,23 +49,23 @@ export const ContactInfo = () => {
   };
 
   return (
-    <div className="container mx-auto px-3 py-24 border-dashed border-b" ref={containerRef}>
-      <h1 className="xl:text-8xl lg:text-6xl md:text-5xl text-3xl font-medium text-[#E9E9E9] bricolage-grotesque">LET’S TALK</h1>
+    <div className="2xl:max-w-[1760px] mx-auto px-3 py-24 border-dashed border-b" ref={containerRef}>
+      <h1 className="2xl:text-9xl xl:text-8xl lg:text-6xl md:text-5xl text-3xl font-medium text-[#E9E9E9] bricolage-grotesque">LET’S TALK</h1>
       <div className="grid md:grid-cols-3 gap-10 2xl:gap-75 xl:gap-45 lg:gap-15 md:gap-10 mt-20">
         {/* Left column */}
         <div className="space-y-20 fade-up-col">
-          <p className="text-[#A6A6A6] font-medium">
+          <p className="2xl:text-2xl text-[#A6A6A6] font-medium">
             A new era of energy, elegance, and elite competition begins here. Where passion meets performance on the court like never before.
           </p>
           <div className="space-y-5">
-            <h2 className="text-2xl font-medium text-[#E9E9E9]">Social media</h2>
+            <h2 className="2xl:text-3xl text-2xl font-medium text-[#E9E9E9]">Social media</h2>
             <div className="grid grid-cols-3 gap-3">
               {["Instagram", "Twitter", "Tiktok", "Facebook", "LinkedIn", "Youtube"].map((platform) => (
                 <div className="flex justify-center items-center gap-2 min-w-fit">
                   <a
                   key={platform}
                   href="#"
-                  className="text-[#A6A6A6] font-medium transform transition-transform duration-300 hover:rotate-8 hover:scale-105"
+                  className="2xl:text-2xl text-[#A6A6A6] font-medium transform transition-transform duration-300 hover:rotate-8 hover:scale-105"
                 >
                   {platform}
                 </a>
@@ -79,16 +79,16 @@ export const ContactInfo = () => {
         {/* Middle column */}
         <div className="space-y-10 fade-up-col">
           <div className="space-y-4">
-            <h2 className="text-3xl font-medium">ADDRESS</h2>
-            <p className="text-[#A6A6A6]">1901 thornridge Cir, <br /> Shiloh, Hawaii 81063</p>
+            <h2 className="2xl:text-3xl text-xl font-medium">ADDRESS</h2>
+            <p className="2xl:text-2xl text-[#A6A6A6]">1901 thornridge Cir, <br /> Shiloh, Hawaii 81063</p>
           </div>
           <div className="space-y-4">
-            <h2 className="text-3xl font-medium">PHONE</h2>
-            <p className="text-[#A6A6A6]">[+1] 872-298-3989</p>
+            <h2 className="2xl:text-3xl text-xl font-medium">PHONE</h2>
+            <p className="2xl:text-2xl text-[#A6A6A6]">[+1] 872-298-3989</p>
           </div>
           <div className="space-y-4">
-            <h2 className="text-3xl font-medium">EMAIL</h2>
-            <p className="text-[#A6A6A6]">hello@tranzit.com</p>
+            <h2 className="2xl:text-3xl text-xl font-medium">EMAIL</h2>
+            <p className="2xl:text-2xl text-[#A6A6A6]">hello@tranzit.com</p>
           </div>
         </div>
 

@@ -115,18 +115,19 @@ export const AwardAndPartern = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-3 py-20">
+    <div className="2xl:max-w-[1760px] mx-auto px-3 py-20">
       {/* companies */}
-      <div className="relative flex flex-col md:flex-row justify-between items-center gap-4">
-        <div>
+      <div className="relative flex flex-col md:flex-row justify-between items-center gap-4 2xl:py-10">
+        <div className="relative">
           <h1
             ref={addCompanyHeadingRef}
-            className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque"
+            className="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque z-10 relative"
           >
             Our Stack Powers of <br /> the{" "}
             <span className="text-[#A5A5A5]">World’s</span> Most <br />{" "}
             <span className="text-[#A5A5A5]">Beloved Companies</span>
           </h1>
+          <img className=" absolute -top-30 2xl:-top-56" src="images/review-glow.png" alt="" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           {companies.map(({ src, label, positionClass }, i) => (
@@ -153,25 +154,25 @@ export const AwardAndPartern = () => {
         <div
           className="bg-[#090B0F] bg-[url('/images/award-glow-center.png'),_url('/images/award-glow-left.png'),_url('/images/award-glow-right.png'),_url('/images/award-glow-sec-right.png')] bg-no-repeat bg-[position:top_left,_bottom_left,bottom_right,_bottom_right] bg-contain flex justify-center items-center flex-col md:gap-10 gap-3  rounded-4xl md:p-20 p-10"
         >
-          <div className="mb-6">
+          <div className="mb-6 2xl:mb-10">
             <SmarterIdea />
           </div>
           <div>
             <img
-              className="p-5 bg-white rounded-full"
+              className="p-5 bg-white rounded-4xl 2xl:mb-10"
               src="/images/logo-2.png"
               alt="Main Logo"
             />
           </div>
           <h1
             ref={addContactHeadingRef}
-            className="text-center xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque"
+            className="text-center 2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque"
           >
             Uncover the Design and Development
           </h1>
           <h1
             ref={addContactHeadingRef}
-            className="text-center xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque"
+            className="text-center xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] bricolage-grotesque 2xl:mb-10"
           >
             Projects <span className="text-[#A5A5A5]">That Set Us Apart</span>
           </h1>
@@ -183,7 +184,7 @@ export const AwardAndPartern = () => {
 
       {/* stories with marquee */}
       <div className="flex flex-col justify-center items-center gap-10 md:pt-20 pt-10">
-        <div className="md:mb-10">
+        <div className="md:mb-10 2xl:mt-6">
           <SmarterIdea />
         </div>
 
@@ -217,7 +218,7 @@ export const AwardAndPartern = () => {
           direction="left"
           className="w-full"
         >
-          <div className="flex gap-10 items-center">
+          <div className="flex gap-10 items-center 2xl:mb-10">
             {logos
               .slice()
               .reverse()

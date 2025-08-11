@@ -47,9 +47,9 @@ export const ContactForm = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="container mx-auto px-3 py-20">
+    <div ref={sectionRef} className="2xl:max-w-[1760px] mx-auto px-3 py-20 2xl:py-30">
       {/* Heading */}
-      <h1 className="text-center xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-bold bricolage-grotesque">
+      <h1 className="text-center 2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-bold bricolage-grotesque 2xl:mb-10">
         <span ref={(el) => (headlineRefs.current[0] = el)}>
           Let’s talk about your next
         </span>
@@ -60,7 +60,7 @@ export const ContactForm = () => {
         </span>
       </h1>
       <p
-        className="text-center mt-4 text-gray-500"
+        className="2xl:text-3xl text-center mt-4 text-gray-500 2xl:mb-6"
         ref={(el) => (headlineRefs.current[2] = el)}
       >
         Deliver personalized experiences to your customers <br /> with
@@ -70,7 +70,7 @@ export const ContactForm = () => {
       {/* Image + Form */}
       <div className="mt-20 grid md:grid-cols-2 grid-cols-1 gap-10 items-start">
         {/* Left Image */}
-        <div className="flex h-[580px]" ref={imageRef}>
+        <div className="flex  h-[580px]" ref={imageRef}>
           <img
             src="/images/man-2.png"
             alt="Smiling person"
@@ -84,19 +84,19 @@ export const ContactForm = () => {
             <input
               type="text"
               placeholder="First Name"
-              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              className="w-full font-medium p-3 rounded-lg bg-gray-100 mb-3"
               ref={(el) => (inputRefs.current[0] = el)}
             />
             <input
               type="text"
               placeholder="Last Name"
-              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              className="w-full font-medium p-3 rounded-lg bg-gray-100 mb-3"
               ref={(el) => (inputRefs.current[1] = el)}
             />
             <input
               type="email"
               placeholder="Email"
-              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              className="w-full font-medium p-3 rounded-lg bg-gray-100 mb-3"
               ref={(el) => (inputRefs.current[2] = el)}
             />
             <select
@@ -110,18 +110,18 @@ export const ContactForm = () => {
             <input
               type="tel"
               placeholder="Phone"
-              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              className="w-full font-medium p-3 rounded-lg bg-gray-100 mb-3"
               ref={(el) => (inputRefs.current[4] = el)}
             />
             <input
               type="text"
               placeholder="Job Title"
-              className="w-full p-3 rounded-lg bg-gray-100 mb-3"
+              className="w-full font-medium p-3 rounded-lg bg-gray-100 mb-3"
               ref={(el) => (inputRefs.current[5] = el)}
             />
             <textarea
               placeholder="Your message"
-              className="w-full p-3 rounded-lg bg-gray-100 h-32 mb-5"
+              className="w-full font-medium p-3 rounded-lg bg-gray-100 h-32 mb-5"
               ref={(el) => (inputRefs.current[6] = el)}
             ></textarea>
             <button

@@ -85,7 +85,7 @@ export const Solutions = () => {
   return (
     <div>
       {/* services title */}
-      <div className="flex flex-col justify-center items-center gap-4 mb-20 bricolage-grotesque font-medium">
+      <div className="flex flex-col justify-center items-center xl:pt-20 gap-4 mb-20 bricolage-grotesque font-medium">
         <div
           ref={addTitleLineRef}
           className=" flex justify-center items-start md:gap-2 gap-1"
@@ -95,20 +95,20 @@ export const Solutions = () => {
             className=" xl:w-12 md:w-10 w-6 xl:mt-3 md:mt-1.5 mt-1.5"
             alt="Charming vector"
           />
-          <h1 className=" xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center">
+          <h1 className="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center">
             At Software Chamber,{" "}
             <span className=" text-[#A5A5A5]">we specialize in</span>{" "}
           </h1>
         </div>
         <h1
           ref={addTitleLineRef}
-          className=" xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center flex justify-center items-center"
+          className="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center flex justify-center items-center"
         >
           turning complex challenges into elegant
         </h1>
         <h1
           ref={addTitleLineRef}
-          className="text-[#A5A5A5] xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center flex justify-center items-center gap-2"
+          className="text-[#A5A5A5] 2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl text-center flex justify-center items-center gap-2"
         >
           digital solutions
           <span>
@@ -122,11 +122,11 @@ export const Solutions = () => {
       </div>
 
       {/* services content */}
-      <div className="flex justify-between items-start gap-10 flex-col-reverse lg:flex-row md:pt-10">
+      <div className="flex justify-between items-start gap-10 2xl:gap-20 flex-col-reverse lg:flex-row md:pt-10">
         <div className=" flex flex-col gap-10 w-[350px]">
           {stats.map((stat, indx) => (
             <div key={indx}>
-              <h1 className=" text-5xl font-medium">
+              <h1 className=" 2xl:text-6xl mb-3 text-5xl font-medium">
                 <CountUp
                   delay={0}
                   end={stat.count}
@@ -136,7 +136,7 @@ export const Solutions = () => {
                   suffix="+"
                 />
               </h1>
-              <p className="text-xl text-[#808080]">{stat.label}</p>
+              <p className="2xl:text-4xl text-xl text-[#808080]">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -145,7 +145,7 @@ export const Solutions = () => {
           <img
             ref={imgRef}
             src="/images/peoples.png"
-            className=" 2xl:h-80 xl:h-86 lg:h-90 h-full w-full"
+            className=" 2xl:h-124 xl:h-86 lg:h-90 h-full w-full"
             alt="People illustration"
           />
         </div>
@@ -160,14 +160,14 @@ export const Solutions = () => {
                   : "border-b border-b-[#00000033]"
               }`}
             >
-              <div className="p-4 bg-[#27B4A3] flex justify-center items-center rounded-full">
-                <span className=" bg-white w-5 h-5 rounded-full text-xs flex justify-center items-center">
+              <div className="2xl:p-8 p-4 bg-[#27B4A3] flex justify-center items-center rounded-full">
+                <span className=" bg-white 2xl:w-8 2xl:h-8  w-5 h-5 rounded-full text-xs 2xl:text-xl flex justify-center items-center">
                   {feature.step}
                 </span>
               </div>
               <div>
-                <h1 className=" text-xl font-medium">{feature.title}</h1>
-                <p className=" text-[#666D80]">{feature.description}</p>
+                <h1 className="2xl:text-4xl text-xl font-medium 2xl:mb-4">{feature.title}</h1>
+                <p className="text-xl text-[#666D80]">{feature.description}</p>
               </div>
             </div>
           ))}

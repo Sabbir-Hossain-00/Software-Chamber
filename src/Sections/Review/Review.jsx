@@ -125,7 +125,7 @@ export const Review = () => {
   return (
     <div
       ref={containerRef}
-      className="container mx-auto px-3 md:py-30 py-10 flex flex-col gap-10 justify-center items-center z-10"
+      className="2xl:max-w-[1760px] mx-auto px-3 md:py-30 py-10 flex flex-col gap-10 justify-center items-center z-10"
     >
       <div>
         <SmarterIdea />
@@ -133,7 +133,7 @@ export const Review = () => {
 
       {/* Headline with lines for stagger */}
       <div ref={headlineRef} className="text-center">
-        <h1 className="xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] leading-tight bricolage-grotesque">
+        <h1 className=" 2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-medium text-[#E9E9E9] leading-tight bricolage-grotesque">
           <span className="headline-line block">Don’t just take our word for it.</span>
           <span className="headline-line block">
             Hear what <span className="text-[#A5A5A5]">our clients say</span>
@@ -151,7 +151,7 @@ export const Review = () => {
 
         <h1
           ref={quoteRef}
-          className="font-medium md:text-2xl text-lg md:w-[80%] relative z-10"
+          className="font-medium 2xl:text-4xl md:text-2xl text-lg md:w-[80%] relative z-10 2xl:mb-10"
           key={currentIndex}
         >
           "{review.quote}"
@@ -161,19 +161,19 @@ export const Review = () => {
           <div className="flex items-center gap-3">
             <img
               ref={avatarRef}
-              className="w-12"
+              className="w-12 2xl:w-14"
               src={review.avatar}
               alt={review.name}
             />
             <div>
-              <h2 className="text-lg font-medium">{review.name}</h2>
-              <p className="text-xs">{review.position}</p>
+              <h2 className="2xl:text-2xl text-lg font-medium">{review.name}</h2>
+              <p className="2xl:text-lg text-xs">{review.position}</p>
             </div>
           </div>
           <div>
             <img
               ref={starsRef}
-              className="w-40"
+              className="w-40 2xl:w-60"
               src={review.logo}
               alt={`${review.name} company logo`}
             />
