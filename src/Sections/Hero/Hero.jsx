@@ -154,14 +154,34 @@ export const Hero = () => {
       </div>
 
       {/* Hero cards with animations */}
-      <div className="mb-20 mt-20">
-        <div></div>
+      <div className="mb-20 mt-20 flex justify-center items-center">
+
+
+        <div className=" hidden lg:flex flex-col gap-40">
+          <div className="flex justify-center items-center">
+            <button className="backdrop-blur bg-gradient-to-l from-white/60 via-white/30 to-white/10 px-3 md:2.5 py-3 rounded flex items-center justify-center gap-2 shadow-md border 2xl:text-xl text-xs border-gray-500 text-white space-x-6 min-w-fit">
+              <span>Website Development</span>
+            </button>
+            <img className=" relative top-14" src="images/left-top-line.png" alt="" />
+          </div>
+          <div>
+            <div className="flex justify-center items-center">
+            <button className="backdrop-blur bg-gradient-to-l from-white/60 via-white/30 to-white/10 px-3 md:2.5 py-3 rounded flex items-center justify-center gap-2 shadow-md border 2xl:text-xl text-xs border-gray-500 text-white space-x-6 min-w-fit">
+              <span>Mobile App Development</span>
+            </button>
+            <img className=" relative bottom-11" src="images/left-bottom-line.png" alt="" />
+          </div>
+          </div>
+        </div>
+
+
+
         <div className="relative" ref={cardStackRef}>
           <div
             ref={addCardRef}
-            className=" flex justify-center items-center gap-6 bg-white/3 backdrop-blur-md rounded-4xl p-6 z-[1]"
+            className=" flex justify-center flex-col md:flex-row items-center gap-6 bg-white/3 backdrop-blur-md rounded-4xl p-6 z-[1]"
           >
-            <img className="w-100" src="/images/hero-card-3.png" alt="" />
+            <img className="2xl:w-100 w-60" src="/images/hero-card-3.png" alt="" />
             <div className="flex flex-col justify-center items-start gap-6 pr-16">
               <h1 className="text-lg font-medium text-white">
                 Software Service <br /> Solutions
@@ -177,12 +197,12 @@ export const Hero = () => {
           </div>
           <div
             ref={addCardRef}
-            className="absolute top-0 flex justify-center items-center gap-6 bg-white/3 backdrop-blur-md rounded-4xl p-6"
+            className="absolute top-0 flex flex-col md:flex-row justify-center items-center gap-6 bg-white/3 backdrop-blur-md rounded-4xl p-6"
           >
-            <img className="w-110" src="/images/hero-card-2.png" alt="" />
+            <img className="2xl:w-110 w-60" src="/images/hero-card-2.png" alt="" />
             <div className="flex flex-col justify-center items-start gap-6 pr-16">
               <h1 className="text-lg font-medium text-white">
-                Our Professional <br /> Trainig Platform
+                Software Service <br /> Solutions
               </h1>
               <p className="text-[#F8F8F8B2]">
                 Plan, track, and <br /> manage projects with <br /> precision
@@ -195,9 +215,9 @@ export const Hero = () => {
           </div>
           <div
             ref={addCardRef}
-            className="absolute top-0 flex justify-center items-center gap-6 bg-white/3 backdrop-blur-md rounded-4xl p-6"
+            className="absolute top-0 flex flex-col md:flex-row  justify-center items-center gap-6 bg-white/3 backdrop-blur-md rounded-4xl p-6"
           >
-            <img className="w-100" src="/images/hero-card.png" alt="" />
+            <img className="2xl:w-100 w-60" src="/images/hero-card.png" alt="" />
             <div className="flex flex-col justify-center items-start gap-6 pr-16">
               <h1 className="text-lg font-medium text-white">
                 Software Service <br /> Solutions
@@ -212,7 +232,24 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-        <div></div>
+
+
+        <div className="hidden lg:flex flex-col gap-40">
+          <div className="flex justify-center items-center">
+            <img className=" relative top-14.5" src="images/right-top-line.png" alt="" />
+            <button className="backdrop-blur bg-gradient-to-l from-white/60 via-white/30 to-white/10 px-3 md:2.5 py-3 rounded flex items-center justify-center gap-2 shadow-md border 2xl:text-xl text-xs border-gray-500 text-white space-x-6 min-w-fit">
+              <span>UI/UX Engineering</span>
+            </button>
+          </div>
+          <div>
+            <div className="flex justify-center items-center">
+              <img className=" relative bottom-11.5 " src="images/right-bottom-line.png" alt="" />
+            <button className="backdrop-blur bg-gradient-to-l from-white/60 via-white/30 to-white/10 px-3 md:2.5 py-3 rounded flex items-center justify-center gap-2 shadow-md border 2xl:text-xl text-xs border-gray-500 text-white space-x-6 min-w-fit">
+              <span>Software Services</span>
+            </button>
+          </div>
+          </div>
+        </div>
       </div>
 
       {/* Shadow backgrounds */}

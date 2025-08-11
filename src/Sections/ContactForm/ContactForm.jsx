@@ -70,7 +70,7 @@ export const ContactForm = () => {
       {/* Image + Form */}
       <div className="mt-20 grid md:grid-cols-2 grid-cols-1 gap-10 items-start">
         {/* Left Image */}
-        <div className="flex  h-[580px]" ref={imageRef}>
+        <div className="flex  md:h-[580px]" ref={imageRef}>
           <img
             src="/images/man-2.png"
             alt="Smiling person"

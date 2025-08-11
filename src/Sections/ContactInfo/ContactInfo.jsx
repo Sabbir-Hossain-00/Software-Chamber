@@ -93,8 +93,8 @@ export const ContactInfo = () => {
         </div>
 
         {/* Right column */}
-        <div className="fade-up-col">
-          <img className="relative z-10" src="/images/peoples-2.png" alt="" />
+        <div className="fade-up-col ">
+          <img className="relative z-10 " src="/images/peoples-2.png" alt="" />
         </div>
       </div>
 
@@ -109,7 +109,7 @@ export const ContactInfo = () => {
       {showTopBtn && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-10 flex justify-center items-center right-10 z-50 bg-teal-400 hover:bg-teal-500 text-white rounded-full w-10 h-10 shadow-lg transition-opacity duration-300"
+          className="fixed bottom-10 flex justify-center items-center md:right-10 right-4 z-50 bg-teal-400 hover:bg-teal-500 text-white rounded-full w-10 h-10 shadow-lg transition-opacity duration-300"
           aria-label="Back to top"
         >
           <FaArrowUp />

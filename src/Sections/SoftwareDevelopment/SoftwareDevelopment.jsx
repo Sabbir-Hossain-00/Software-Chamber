@@ -12,7 +12,7 @@ export const SoftwareDevelopment = () => {
   const buttonRef = useRef(null);
   const smarterIdeaRef = useRef(null);
   const imageRef = useRef(null);
-
+  
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Animate headline lines, SmarterIdea, button, and image sequentially
@@ -74,6 +74,7 @@ export const SoftwareDevelopment = () => {
           </div>
         </div>
       </div>
+
       <div className="flex flex-col justify-center items-center container mx-auto px-3 ">
         <img
           ref={imageRef}
