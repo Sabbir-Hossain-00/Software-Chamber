@@ -49,7 +49,7 @@ export const ContactInfo = () => {
   };
 
   return (
-    <div className="2xl:max-w-[1760px] mx-auto px-3 py-24 border-dashed border-b" ref={containerRef}>
+    <div className="2xl:max-w-[1760px] mx-auto px-3 py-24  xl:px-12 lg:px-10 md:px-6" ref={containerRef}>
       <h1 className="2xl:text-9xl xl:text-8xl lg:text-6xl md:text-5xl text-3xl font-medium text-[#E9E9E9] bricolage-grotesque">LET’S TALK</h1>
       <div className="grid md:grid-cols-3 gap-10 2xl:gap-75 xl:gap-45 lg:gap-15 md:gap-10 mt-20">
         {/* Left column */}

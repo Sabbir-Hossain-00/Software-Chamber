@@ -170,7 +170,7 @@ export const WhyChoseSoftwareChamber = () => {
   ];
 
   return (
-    <div className="2xl:max-w-[1760px] mx-auto px-7 2xl:py-30 md:py-20 py-10">
+    <div className="2xl:max-w-[1760px] mx-auto xl:px-12 lg:px-10 md:px-6 px-7 2xl:py-30 md:py-20 py-10">
       {/* Section Heading */}
       <div className="flex flex-col justify-center items-center gap-6 text-center md:mb-10">
         <h1

@@ -111,7 +111,7 @@ export const Faq = () => {
   return (
     <div
       ref={containerRef}
-      className="2xl:max-w-[1760px] mx-auto px-3 2xl:py-30 py-20 relative z-10"
+      className="2xl:max-w-[1760px] mx-auto xl:px-12 lg:px-10 md:px-6 px-3 2xl:py-30 py-20 relative z-10"
     >
       {/* Title */}
       <div className="space-y-6 relative z-10 bricolage-grotesque">

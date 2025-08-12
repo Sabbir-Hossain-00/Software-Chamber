@@ -47,9 +47,9 @@ export const ContactForm = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="2xl:max-w-[1760px] mx-auto px-3 py-20 2xl:py-30">
+    <div ref={sectionRef} className="2xl:max-w-[1760px] mx-auto px-3 py-20 2xl:py-30 xl:px-12 lg:px-10 md:px-6">
       {/* Heading */}
-      <h1 className="text-center 2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-bold bricolage-grotesque 2xl:mb-10">
+      <h1 className="text-center 2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-2xl font-bold bricolage-grotesque 2xl:mb-10 ">
         <span ref={(el) => (headlineRefs.current[0] = el)}>
           Let’s talk about your next
         </span>

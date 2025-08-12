@@ -44,7 +44,7 @@ export const SoftwareDevelopment = () => {
   return (
     <div ref={containerRef}>
       <div className="bg-[url('/images/banner-glow-left.png'),_url('/images/banner-glow-right.png'),_url('/images/bg-dot-line.png'),_url('/images/bg-dot-line.png')] bg-no-repeat bg-[position:top_left,_top_right,top_left,_top_right] bg-contain">
-        <div className="flex flex-col justify-center items-center 2xl:max-w-[1760px] mx-auto px-3 md:pt-20 pt-10">
+        <div className="flex flex-col justify-center items-center 2xl:max-w-[1760px] mx-auto xl:px-12 lg:px-10 md:px-6 px-3 md:pt-20 pt-10">
           <div className="flex flex-col justify-center items-center pb-20 gap-4">
             <div className="2xl:mb-6" ref={smarterIdeaRef}>
               <SmarterIdea />

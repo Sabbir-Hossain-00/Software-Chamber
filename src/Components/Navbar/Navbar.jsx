@@ -17,7 +17,7 @@ export const Navbar = () => {
         transition-all duration-300
         ${isSticky ? "fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md shadow-lg" : ""}
       `}>
-      <div className="flex justify-between items-center py-4 2xl:py-10  mx-auto px-3 2xl:max-w-[1760px]">
+      <div className="2xl:max-w-[1760px] mx-auto xl:px-12 lg:px-10 md:px-6 px-3 flex justify-between items-center py-4 2xl:py-10">
       <div>
         <img src="/images/logo.png" className="w-3/4 md:w-full" alt="" />
       </div>

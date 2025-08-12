@@ -115,7 +115,7 @@ export const AwardAndPartern = () => {
   }, []);
 
   return (
-    <div className="2xl:max-w-[1760px] mx-auto px-3 py-20">
+    <div className="2xl:max-w-[1760px]  mx-auto xl:px-12 lg:px-10 md:px-6 px-3 py-20">
       {/* companies */}
       <div className="relative flex flex-col md:flex-row justify-between items-center gap-4 2xl:py-10">
         <div className="relative">

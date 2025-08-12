@@ -125,7 +125,7 @@ export const Review = () => {
   return (
     <div
       ref={containerRef}
-      className="2xl:max-w-[1760px] mx-auto px-3 md:py-30 py-10 flex flex-col gap-10 justify-center items-center z-10"
+      className="2xl:max-w-[1760px] mx-auto xl:px-12 lg:px-10 md:px-6 px-3 md:py-30 py-10 flex flex-col gap-10 justify-center items-center z-10"
     >
       <div>
         <SmarterIdea />
